@@ -30,7 +30,7 @@ const Home = () => {
         setHasClicked(true); // 클릭한 경우 상태 업데이트
         setFridgeOpen(prev => !prev);
         if (fridgeRef.current) {
-            fridgeRef.current.style.transform = isFridgeOpen ? 'translateX(0)' : 'translateX(-20rem)';            
+            fridgeRef.current.style.transform = isFridgeOpen ? 'translateX(0)' : 'translateX(-50%)';            
         }
     };
 
@@ -80,8 +80,8 @@ const Home = () => {
             <Fridge className={`${styles.fridge} ${isFridgeOpen ? styles.open : ''} ${fridgeRef.current?.classList.contains('shake') ? 'shake' : ''}`} ref={fridgeRef}>
                 <div className={`${styles.door} ${styles.left}`}>
                     <div className={styles.foodBox}>
-                        <div className={`${styles.textAreaRight} ${styles.textArea}`}>원하는 스타일을 선택하세요.</div>
-                        <div className={`${styles.inputAreaRight} ${styles.inputArea} ${styles.checkbox} ${styles.buttons}`}>
+                        <div className={`${styles.textAreaRight} ${styles.textArea}`}>원하는 스타일을 선택해주세요.</div>
+                        <div className={`${styles.inputAreaRight} ${styles.inputArea} ${styles.checkbox_buttons}`}>
                             <input type="checkbox" id="korean" name="food" value="한식" />
                             <label htmlFor="korean">한식</label>
                             <input type="checkbox" id="chinese" name="food" value="중식" />
@@ -95,7 +95,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className={styles.foodBox}>
-                        <div className={`${styles.textArea} ${styles.textAreaRight}`}>요리 가능 시간을 선택하세요.</div>
+                        <div className={`${styles.textArea} ${styles.textAreaRight}`}>요리 가능 시간을 선택해주세요.</div>
                         <div className={`${styles.inputArea} ${styles.inputAreaRight}`}>
                             <input
                                 id="inputRange"
@@ -106,8 +106,8 @@ const Home = () => {
                                 value={cookTime}
                                 onChange={handleRangeChange}
                             />
-                            <p className={styles.time}><span>{cookTime}</span>분</p>
-                            <button className={styles.nextPageBtn} onClick={handleNextPage} style={{ cursor: hasClicked ? 'default' : 'pointer' }}>선택완료</button>
+                            <p className={styles.time}>{cookTime + ' 분'}</p>
+                            <button className={styles.nextPageBtn} onClick={handleNextPage}><span>선택완료</span></button>
                         </div>
                     </div>
                 </div>
@@ -125,12 +125,15 @@ const Home = () => {
                     </div>
                 </div>
                 <div className={`${styles.foodBoxLeft2} ${styles.foodBoxLeft}`}>
-                    <div className={styles.textArea}>조리 도구를 한 개 이상 적어주세요.</div>
-                    <div className={`${styles.inputArea} ${styles.checkbox} ${styles.buttons}`}>
-                        <input type="text" className={styles.inputFood} />
-                        <input type="text" className={styles.inputFood} />
-                        <input type="text" className={styles.inputFood} />
-                        <input type="checkbox" id="nomatter" name="food" value="상관없음" />
+                    <div className={styles.textArea}>조리 도구를 한 개 이상을 선택해주세요.</div>
+                    <div className={`${styles.inputArea} ${styles.checkbox_buttons}`}>
+                    <input type="checkbox" id="microwave" name="tools" value="전자레인지" />
+                            <label htmlFor="microwave">전자레인지</label>
+                            <input type="checkbox" id="oven" name="tools" value="오븐" />
+                            <label htmlFor="oven">오븐</label>
+                            <input type="checkbox" id="none" name="tools" value="없음" />
+                            <label htmlFor="none">없음</label>
+                        <input type="checkbox" id="nomatter" name="tools" value="상관없음" />
                         <label htmlFor="nomatter">상관없음</label>
                     </div>
                 </div>
