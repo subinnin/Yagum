@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>냉장고 문 열기 애니메이션</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: content-box;
+            font-size: 10px;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #E9EED9;
+            overflow: hidden;
+        }
+
+        .fridge {
+            position: relative;
+            width: 40rem;
+            height: 60rem;
+            background-color: #fff;
+            border: 0.3rem solid #222;
+            border-radius: 5.5rem;
+            perspective: 1000px;
+        }
+
+        .door {
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: transform 1s ease;
+            transform-origin: right;
+            border: 0.3rem solid #222;
+            border-radius: 5.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .open .door {
+            transform: rotateY(180deg);
+        }
+
+        .handle {
+            position: absolute;
+            width: 2rem;
+            height: 10rem;
+            background-color: #E8E8E8;
+            top: 50%;
+            left: 3rem;
+            transform: translateY(-50%);
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: opacity 0.1s ease;
+        }
+
+        .open .handle {
+            opacity: 0;
+        }
+
+        .content {
+            display: none;
+        }
+
+        .open .content {
+            display: flex;
+            opacity: 1;
+        }
+
+        .foodBox {
+            width: 90%;
+            margin: 1rem;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #222;
+        }
+
+        .inputArea {
+            margin-top: 1rem;
+        }
+
+        .inputFood {
+            width: 80%;
+            margin: 0.5rem 0;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #222;
+            border-radius: 0.3rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fridge">
+        <div class="door left-door">
+            <div class="foodBox">
+                <p>냉장고 안의 재료를 3가지 골라주세요.</p>
+                <div class="inputArea">
+                    <input type="text" class="inputFood" placeholder="재료 1">
+                    <input type="text" class="inputFood" placeholder="재료 2">
+                    <input type="text" class="inputFood" placeholder="재료 3">
+                </div>
+            </div>
+            <div class="foodBox">
+                <p>조리 도구를 한 개 이상 적어주세요.</p>
+                <div class="inputArea">
+                    <input type="text" class="inputFood" placeholder="도구 1">
+                    <input type="text" class="inputFood" placeholder="도구 2">
+                    <input type="text" class="inputFood" placeholder="도구 3">
+                </div>
+            </div>
+        </div>
+        <div class="handle" id="open-handle"></div>
+    </div>
+
+    <script>
+        document.getElementById("open-handle").addEventListener("click", function () {
+            const fridge = document.querySelector(".fridge");
+            fridge.classList.toggle("open");
+
+            // 문이 열리면 냉장고를 중앙으로 이동
+            if (fridge.classList.contains("open")) {
+                fridge.style.transform = 'translateX(-15rem)';
+            } else {
+                fridge.style.transform = 'translateX(0)';
+            }
+        });
+    </script>
+</body>
+
+</html>

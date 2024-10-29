@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>냉장고 문 열기 애니메이션</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            font-size: 10px;
+            /* 기본 폰트 크기 */
+        }
+
+        @font-face {
+            font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimChilpanjiugaeTTF-B.woff2') format('woff2');
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        @font-face {
+            font-family: 'NanumSquareNeo';
+            src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot);
+            src: url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.eot?#iefix) format("embedded-opentype"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.woff) format("woff"), url(https://hangeul.pstatic.net/hangeul_static/webfont/NanumSquareNeo/NanumSquareNeoTTF-bRg.ttf) format("truetype");
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            background-color: #E9EED9;
+            overflow: hidden;
+        }
+
+        .title {
+            font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+            margin: auto;
+            text-align: center;
+            padding: 5rem 0rem 13rem 0;
+            font-size: 9rem;
+            color: #222;
+            margin: auto;
+            height: 3rem;
+        }
+
+        /* === 냉장고 === */
+        .fridge {
+            
+            box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
+            margin: auto;
+            position: relative;
+            width: 40rem;
+            height: 60rem;
+            background-color: #fff;
+            border: 0.3rem solid #222;
+            border-radius: 5.5rem;
+            border-radius: 5.5rem;
+            perspective: 1000px;
+            transition: 1s ease;
+        }
+
+        /*  === 냉장고 문 === */
+        .door {
+            box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+            width: 100%;
+            height: 100%;
+            background-color: #FFFFFF;
+            position: absolute;
+            top: -0.3rem;
+            left: -0.3rem;
+            transition: transform 1.2s ease;
+            transform-origin: right;
+            border: 0.3rem solid #222;
+            border-radius: 5.5rem;
+        }
+
+        .open .door {
+            box-shadow: none;
+            transform: rotateY(180deg);
+        }
+        .foodBoxLeft{
+            transition: 1.2s;
+            opacity: 0;
+        }
+        /* 문 열렸을 때 왼쪽 냉장고 */
+        .open .foodBoxLeft {
+            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+            position: relative;
+            width: 90%;
+            height: 40%;
+            margin: 4rem 2rem 4rem 2rem;
+            border-radius: 2rem;
+            background-color: #D1E3EB;
+            /* display: block; */
+            opacity: 1;
+        }
+        /*  === 냉장고 문 손잡이 === */
+        .handle {
+            position: absolute;
+            width: 2rem;
+            /* 20px -> 2rem */
+            height: 10rem;
+            /* 100px -> 10rem */
+            background-color: #E8E8E8;
+            top: 50%;
+            left: 3rem;
+            /* 30px -> 3rem */
+            transform: translateY(-50%);
+            border-radius: 0.5rem;
+            /* 5px -> 0.5rem */
+            cursor: pointer;
+            /* 커서를 손잡이 모양으로 변경 */
+            transition: opacity 1.5s ease;
+            /* 부드러운 사라짐 효과 */
+        }
+
+        /*  === 문이 열릴 때 손잡이를 숨김 === */
+        .open .handle {
+            opacity: 0;
+        }
+
+        /* ========= 문 열렸을 때 왼쪽 부분 레이아웃 ========= */
+        .foodBox{
+            transition: 1.2s;
+            opacity: 0;
+        }
+        .open .foodBox {
+            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset; */
+            width: 90%;
+            height: 40%;
+            margin: 4rem 2rem 4rem 2rem;
+            border-radius: 2rem;
+            background-color: #D1E3EB;
+            /* display: block; */
+            opacity: 1;
+        }
+
+        /* 설명 글 적는 부분 */
+        .open .textArea {
+            font-family: 'NanumSquareNeo';
+            /* font-family: 'NanumSquare'; */
+            font-size: 2rem;
+            display: block;
+            width: 100%;
+            height: 40%;
+            /* border: 1px solid red; */
+            text-align: center;
+            line-height: 12rem;
+        }
+
+        /* ============ 설명 글 적는 부분 오른 쪽 (글자 반대로 나오는거 고치기) ============= */
+        .textAreaRight {
+            
+            transform: scaleX(-1);
+        }
+
+        .inputAreaRight {
+            transform: scaleX(-1);
+        }
+
+        /*  ==== 인풋 값 받는 영역 ==== */
+        .inputFood,
+        .inputRange,
+        .nextPageBtn,
+        .textArea {
+            display: none;
+        }
+
+        .open .inputArea {
+            display: block;
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 60%;
+        }
+
+        /* 문 열렸을 때 인풋 박스.... */
+        .open .inputFood {
+            text-align: center;
+            width: 25%;
+            height: 25%;
+            background-color: #FFFAF0;
+            display: inline-block;
+            /* display: flex; */
+            /* 요소들을 왼쪽에서 오른쪽으로 배치 */
+            border-radius: 1rem;
+            /* margin-left: 2rem; */
+            margin: 1rem;
+            font-size: 2rem;
+        }
+
+        /*  === 선택 완료 버튼(을 누르면 냉장고 문이 닫히고 다음 페이지로 이동 )=== */
+        .open .nextPageBtn {
+            font-family: 'NanumSquareNeo';
+            display: block;
+            width: 30%;
+            height: 35%;
+            background-color: #FFFAF0;
+            border-radius: 1rem;
+            font-size: 2rem;
+            margin: auto;
+            margin-top: 2rem;
+            transition: 0.2s;
+        }
+
+        .open .nextPageBtn:hover {
+            cursor: pointer;
+            background-color: #E9EED9;
+        }
+
+        /* === 조리시간 조절 === */
+        .open .inputRange {
+            /* margin: auto; */
+            /* text-align: center; */
+            display: block;
+            position: relative;
+            left: 2rem;
+            width: 90%;
+            height: 4rem;
+            background-color: #FFFAF0;
+        }
+
+        /* === 조리시간 넣는 박스 === */
+        .time {
+            display: none;
+        }
+
+        .open .time {
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* === 원하는 스타일 선택하는 체크 박스 === */
+        .checkbox-buttons input[type="checkbox"] {
+            display: none;
+        }
+
+        .checkbox-buttons {
+            text-align: center;
+        }
+
+        .open .checkbox-buttons label {
+            display: inline-block;
+            padding: 1rem 1.5rem;
+            margin: 1rem;
+            background-color: #f0f0f0;
+            color: #333;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 2rem;
+            transition: 0.3s;
+        }
+
+        .open .checkbox-buttons label:hover {
+            background-color: #E9EED9;
+        }
+
+        .checkbox-buttons label {
+            display: none;
+        }
+
+        .checkbox-buttons input[type="checkbox"]:checked+label {
+            background-color: #fffae0;
+            /* 선택된 버튼의 배경색 */
+            color: #333;
+            /* 선택된 버튼의 텍스트 색상 */
+        }
+
+        .shake {
+            /* display: inline-block; */
+            animation: shake 0.5s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            25% {
+                transform: rotate(3deg);
+            }
+
+            50% {
+                transform: rotate(-3deg);
+            }
+
+            75% {
+                transform: rotate(3deg);
+            }
+
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="title">냉장고를 야금야금</header>
+    <div class="fridge">
+
+        <div class="door left-door">
+            <div class="foodBox">
+                <div class="textAreaRight textArea">원하는 스타일을 선택하세요.</div>
+                <div class="inputAreaRight inputArea checkbox-buttons">
+                    <input type="checkbox" id="korean" name="food" value="한식">
+                    <label for="korean">한식</label>
+
+                    <input type="checkbox" id="chinese" name="food" value="중식">
+                    <label for="chinese">중식</label>
+
+                    <input type="checkbox" id="japanese" name="food" value="일식">
+                    <label for="japanese">일식</label>
+
+                    <input type="checkbox" id="western" name="food" value="양식">
+                    <label for="western">양식</label>
+
+                    <input type="checkbox" id="noPreference" name="food" value="상관없음">
+                    <label for="noPreference">상관없음</label>
+                </div>
+            </div>
+
+            <div class="foodBox">
+                <div class="textArea textAreaRight">요리 가능 시간을 선택하세요.</div>
+                <div class="inputArea inputAreaRight">
+                    <input id="inputRange" type="range" min="5" max="60" class="inputRange" value="5">
+                    <p class="time"><span id="time">5</span>분</p>
+                    <button id="nextPageBtn" class="nextPageBtn">선택완료</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="door right-door"></div> -->
+        <div class="handle" id="open-handle"></div>
+        <!-- 열렸을 때 왼쪽 부분  -->
+        <div class="foodBoxLeft1 foodBoxLeft">
+            <div class="textArea">냉장고 재료를 3가지 이상 골라주세요.</div>
+            <div class="inputArea">
+                <input type="text" class="inputFood">
+                <input type="text" class="inputFood">
+                <input type="text" class="inputFood">
+                <input type="text" class="inputFood">
+                <input type="text" class="inputFood">
+                <input type="text" class="inputFood">
+            </div>
+        </div>
+        <div class="foodBoxLeft2 foodBoxLeft">
+            <div class="textArea">조리 도구를 한 개 이상 적어주세요.</div>
+            <div class="inputArea  checkbox-buttons">
+                <input type="text" class="inputFood">
+                <input type="text" class="inputFood">
+                <input type="text" class="inputFood">
+                <input type="checkbox" id="nomatter" name="food" value="양식">
+                <label for="nomatter">상관없음</label>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("open-handle").addEventListener("click", function () {
+            const fridge = document.querySelector(".fridge");
+            fridge.classList.toggle("open");
+            fridge.classList.remove("shake");
+            // 문이 열리면 냉장고를 중앙으로 이동
+            if (fridge.classList.contains("open")) {
+                fridge.style.transform = 'translateX(-20rem)'; // 40px -> 4rem
+            } else {
+                fridge.style.transform = 'translateX(0)'; 
+            }
+        });
+        const inputRange = document.getElementById('inputRange');
+        const timeDisplay = document.getElementById('time');
+
+        inputRange.addEventListener('input', function () {
+            timeDisplay.textContent = inputRange.value;
+        });
+        const nextBtn = document.getElementById("nextPageBtn").addEventListener("click", () => {
+            const fridge = document.querySelector(".fridge");
+            fridge.classList.remove("open");
+
+            // 문이 열리면 냉장고를 중앙으로 이동
+            if (fridge.classList.contains("open")) {
+                fridge.style.transform = 'translateX(-20rem)'; // 40px -> 4rem
+            } else {
+                fridge.style.transform = 'translateX(0)'; // 원래 위치로 돌아옴
+                const moveFidge = () => {
+                        fridge.classList.add("shake");
+                    
+                }
+                let intervalId;
+                intervalId = setInterval(moveFidge, 1000);
+                setTimeout(() => {
+                    clearInterval(intervalId);
+                }, 1000);
+            }
+        });
+    </script>
+</body>
+
+</html>
