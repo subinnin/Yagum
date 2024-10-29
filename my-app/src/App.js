@@ -11,8 +11,8 @@ function App() {
     <div>
     <Router>
       <Routes>
-        <Route path='/home' element={<Home />}></Route>
-        <Route path='/' element={<Doma1 />}></Route>
+        <Route path='/' element={<Home />}></Route>
+        <Route path='/doma1' element={<Doma1 />}></Route>
         <Route path='/doma2' element={<Doma2 />}></Route>
         <Route path='/menu' element={<Menu />}></Route>
       </Routes>

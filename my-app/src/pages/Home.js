@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styles from './Home.module.css';
 import styled, { keyframes } from 'styled-components';
+import { useNavigate } from 'react-router-dom'
 
 // Shake animation
 const shakeAnimation = keyframes`
@@ -18,14 +19,18 @@ const Fridge = styled.div`
 `;
 
 const Home = () => {
+    const navigate = useNavigate();
+
     const [isFridgeOpen, setFridgeOpen] = useState(false);
     const [cookTime, setCookTime] = useState(5);
-    const fridgeRef = useRef(null);
+    const fridgeRef = useRef(null);const [hasClicked, setHasClicked] = useState(false); // 클릭 여부 상태 추가
 
     const toggleFridge = () => {
+        if (hasClicked) return; // 이미 클릭한 경우 함수 종료
+        setHasClicked(true); // 클릭한 경우 상태 업데이트
         setFridgeOpen(prev => !prev);
         if (fridgeRef.current) {
-            fridgeRef.current.style.transform = isFridgeOpen ? 'translateX(0)' : 'translateX(-20rem)';
+            fridgeRef.current.style.transform = isFridgeOpen ? 'translateX(0)' : 'translateX(-20rem)';            
         }
     };
 
@@ -50,8 +55,17 @@ const Home = () => {
                 clearInterval(intervalId);
             }, 1000);
 
+            const nextPage =()=>{
+                navigate('/menu')
+            }
+            let interval;
+            interval = setInterval(nextPage,5000);
+            setTimeout(()=>{
+                clearInterval(interval)
+            },5000)
+            
 
-
+            
 
             // 10초 후 흔들림 종료
             //   setTimeout(() => {
@@ -93,7 +107,7 @@ const Home = () => {
                                 onChange={handleRangeChange}
                             />
                             <p className={styles.time}><span>{cookTime}</span>분</p>
-                            <button className={styles.nextPageBtn} onClick={handleNextPage}>선택완료</button>
+                            <button className={styles.nextPageBtn} onClick={handleNextPage} style={{ cursor: hasClicked ? 'default' : 'pointer' }}>선택완료</button>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@ const Menu = () => {
     const navigate = useNavigate(); //useNavigate 훅 사용
 
     const navigateToDoma1 = () =>{
-        navigate('/')
+        navigate('/doma1')
     }
 
     return (
