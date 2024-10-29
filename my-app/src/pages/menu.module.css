@@ -1,0 +1,141 @@
+* {
+    padding: 0;
+    margin: 0;
+    /*box-sizing: content-box;*/
+    font-size: 10px;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #E9EED9;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimChilpanjiugaeTTF-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.title {
+    font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+    margin: auto;
+    text-align: center;
+    padding: 5rem 0rem 13rem 0;
+    font-size: 9rem;
+    color: #222;
+    margin: auto;
+    height: 3rem;
+}
+
+.mainArea {
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@font-face {
+    font-family: 'GangwonEdu_OTFBoldA';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.menu {
+    font-family: 'GangwonEdu_OTFBoldA';
+    width: 90rem;
+    height: 60rem;
+    background-color: #A5B68D;
+    padding: 2rem;
+    border-radius: 1rem;
+    margin-right: -0.5rem;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.todays {
+    margin: 3rem 0 1rem 0;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #4A4A4A;
+    letter-spacing: 0.5rem;
+}
+
+.todays div h1 {
+    height: 50%;
+    font-size: 6.5rem;
+    text-shadow: 3px 3px 5px whitesmoke;
+}
+
+.dividingLine {
+    width: 90%;
+    border-top: 1px solid #4A4A4A;
+    margin: auto;
+}
+
+.menuList {
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin-top: 4rem;
+}
+
+.menuImg {
+    height: 70%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.picBox {
+    width: 30%;
+    height: 100%;
+    background-color: rgba(235, 233, 233, 0.8);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.picBox div {
+    border-radius: 10px;
+    width: 90%;
+    height: 90%;
+    background-size: cover;
+}
+
+.pic1 {
+    background-image: url('../images/pic1.jpg');
+}
+
+.pic2 {
+    background-image: url('../images/pic2.jpg');
+}
+
+.pic3 {
+    background-image: url('../images/pic3.jpg');
+}
+
+.menuName {
+    margin-top: 3rem;
+    height: 20%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.menuName div {
+    height: 70%;
+    width: 30%;
+    font-size: 4rem;
+    text-align: center;
+    color: #635858;
+    text-shadow: 1px 1px 1px whitesmoke;
+}

@@ -3,8 +3,13 @@ import styles from './doma1.module.css'
 
 import { useNavigate } from 'react-router-dom'
 
+
 const Doma1 = () =>{
     const navigate = useNavigate(); //useNavigate 훅 사용
+
+    const navigateToMenu = () =>{
+      navigate('/menu')
+    }
     const navigateToDoma2 = () =>{
         console.log("doma2로 이동 클릭됨")
         navigate('/doma2')
@@ -13,7 +18,7 @@ const Doma1 = () =>{
         <header className = {styles.title}>냉장고를 야금야금</header>
     <div className={styles.cuttingBoard}>
       <div className={`${styles.side} ${styles.leftSide}`}>
-        <div className={styles.sideInside}><p className={styles.writingMode}>선택 레시피</p></div>
+        <div onClick={navigateToMenu} className={styles.sideInside}><p className={styles.writingMode}>선택 레시피</p></div>
       </div>
       <div className={`${styles.side} ${styles.rightSide}`}>
         <div onClick={navigateToDoma2} className={styles.sideInside}><p className={styles.writingMode}>만들기 음식 </p></div>
