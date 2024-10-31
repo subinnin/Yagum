@@ -270,7 +270,7 @@ body {
 .open .nextPageBtn {
     position: relative;
     font-size: 110%;
-    top: -70%;
+    top: -50%;
     font-family: 'NanumSquareNeo';
     display: block;
     width: 30%;
