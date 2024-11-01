@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './menu.module.css'
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom'
 
 const Menu = () => {
@@ -9,7 +10,6 @@ const Menu = () => {
     const navigateToDoma1 = () =>{
         navigate('/doma1')
     }
-
     return (
         <div>
             <header className={styles.title}>냉장고를 야금야금</header>
@@ -17,11 +17,9 @@ const Menu = () => {
                 <div className={styles.menu}>
                     <section className={styles.todays}>
                         <div>
-                            <h1>TODAY'S</h1>
+                            <h1>TODAY'S MENU</h1>
                         </div>
-                        <div>
-                            <h1>MENU</h1>
-                        </div>
+                        <div className={styles.againMenu}>🌮다른 메뉴 추천받기🍜</div>
                     </section>
                     <div className={styles.dividingLine}></div>
                     <section className={styles.menuList}>
@@ -29,17 +27,10 @@ const Menu = () => {
                             <div className={styles.picBox}>
                                 <div onClick={navigateToDoma1} className={styles.pic1}></div>
                             </div>
-                            <div className={styles.picBox}>
-                                <div onClick={navigateToDoma1} className={styles.pic2}></div>
-                            </div>
-                            <div className={styles.picBox}>
-                                <div onClick={navigateToDoma1} className={styles.pic3}></div>
-                            </div>
                         </div>
+                        <div className={styles.dividingLine}></div>
                         <div className={styles.menuName}>
                             <div>salad</div>
-                            <div>pancake</div>
-                            <div>pasta</div>
                         </div>
                     </section>
                 </div>

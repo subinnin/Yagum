@@ -25,11 +25,11 @@ body {
     font-family: 'HakgyoansimChilpanjiugaeTTF-B';
     margin: auto;
     text-align: center;
-    padding: 5rem 0rem 13rem 0;
-    font-size: 9rem;
+    padding: 3% 0% 0% 0;
+    font-size: 580%;
     color: #222;
     margin: auto;
-    height: 3rem;
+    height: 3%;
 }
 
 .mainArea {
@@ -37,6 +37,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    /* border: 1px solid red; */
+    height:70vh;
+    width: 70%;
+    margin-top: 2%;
 }
 
 @font-face {
@@ -48,29 +52,53 @@ body {
 
 .menu {
     font-family: 'GangwonEdu_OTFBoldA';
-    width: 90rem;
-    height: 60rem;
+    width: 60%;
+    height: 100%;
     background-color: #A5B68D;
-    padding: 2rem;
-    border-radius: 1rem;
-    margin-right: -0.5rem;
+    padding: 2%;
+    border-radius: 1%;
+    margin-right: -0.5%;
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    -webkit-border-radius: 1%;
+    -moz-border-radius: 1%;
+    -ms-border-radius: 1%;
+    -o-border-radius: 1%;
+}
+.againMenu{
+    font-size: 200%;
+    position: relative;
+    background-color: #E9EED9;
+    border: 2px solid #4A4A4A;
+    border-radius: 20% ;
+    -webkit-border-radius: 20% ;
+    -moz-border-radius: 20% ;
+    -ms-border-radius: 20% ;
+    -o-border-radius: 20% ;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+.againMenu:hover{
+    background-color: #dadecc;
+    cursor: pointer;
 }
 
 .todays {
-    margin: 3rem 0 1rem 0;
-    height: 30%;
+    /* margin: 1% 0 1% 0; */
+    height: 15%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #4A4A4A;
-    letter-spacing: 0.5rem;
+    letter-spacing: 0.5%;
 }
 
 .todays div h1 {
     height: 50%;
-    font-size: 6.5rem;
+    font-size: 500%;
     text-shadow: 3px 3px 5px whitesmoke;
 }
 
@@ -78,24 +106,26 @@ body {
     width: 90%;
     border-top: 1px solid #4A4A4A;
     margin: auto;
+    margin: 1;
 }
 
 .menuList {
-    height: 50%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin-top: 4rem;
+    margin: 2% 0 2% 0;
 }
 
 .menuImg {
-    height: 70%;
+    height: 100%;
     display: flex;
     justify-content: space-evenly;
+    margin-bottom: 2%;
 }
 
 .picBox {
-    width: 30%;
+    width: 85%;
     height: 100%;
     background-color: rgba(235, 233, 233, 0.8);
     border-radius: 10px;
@@ -104,38 +134,115 @@ body {
     align-items: center;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
-
+.picBox:hover{
+    cursor: pointer;
+}
 .picBox div {
     border-radius: 10px;
-    width: 90%;
+    width: 95%;
     height: 90%;
     background-size: cover;
 }
 
 .pic1 {
-    background-image: url('../images/pic1.jpg');
+    background-image: url('../images/떡.webp');
+    background-position: 0%;
 }
-
+/* 
 .pic2 {
     background-image: url('../images/pic2.jpg');
 }
 
 .pic3 {
     background-image: url('../images/pic3.jpg');
-}
+} */
 
 .menuName {
-    margin-top: 3rem;
+    margin-top: 3%;
     height: 20%;
     display: flex;
     justify-content: space-evenly;
 }
 
 .menuName div {
+    line-height: 150%;
     height: 70%;
     width: 30%;
-    font-size: 4rem;
+    font-size: 500%;
     text-align: center;
     color: #635858;
     text-shadow: 1px 1px 1px whitesmoke;
+}
+
+@media (max-width: 1400px) {
+    .menu {
+        position: relative;
+        top:-10%;
+        width: 50%;
+        height: 60vh;
+    }
+    .title {
+        margin: 2% 0 0 0;
+        padding: 0;
+    }
+    .againMenu{
+        font-size: 150%;
+    }
+}
+
+@media (max-width: 1300px) {
+    .menu {
+        margin-top: 10%;
+        width: 38%;
+        height: 60vh;
+    }
+    .todays div h1{
+        font-size: 300%;
+    }
+    .menuName{
+        font-size: 80%;
+    }
+}
+
+@media (max-width: 1050px) {
+    .menu {
+        margin-top: 35%;
+        width: 90%;
+        height: 70vh;
+    }
+    .todays div h1{
+        font-size: 600%;
+    }
+    .menuName{
+        font-size: 100%;
+    }
+}
+
+@media (max-width: 850px) {
+    .menu {
+        margin-top: 50%;
+        width: 90%;
+        height: 70vh;
+    }
+    .todays div h1{
+        font-size: 350%;
+    }
+    .menuName{
+        font-size: 80%;
+    }
+}
+
+
+@media (max-width: 450px) {
+    .menu {
+        margin-top: 30%;
+        width: 100%;
+        height: 55vh;
+    }
+    .todays div h1{
+        font-size: 200%;
+    }
+    .menuName{
+        font-size: 50%;
+    }
 }
