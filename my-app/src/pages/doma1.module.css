@@ -1,205 +1,355 @@
 @font-face {
-    font-family: "HakgyoansimChilpanjiugaeTTF-B";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimChilpanjiugaeTTF-B.woff2")
-      format("woff2");
-    font-weight: 700;
-    font-style: normal;
-  }
-  @font-face {
-    font-family: "GangwonEdu_OTFBoldA";
-    src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff")
-      format("woff");
-    font-weight: normal;
-    font-style: normal;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* 박스 모델을 통일 */
-    font-size: 10px;
-  }
-  .title {
-    font-family: "HakgyoansimChilpanjiugaeTTF-B";
-    margin: auto;
-    text-align: center;
-    padding: 5rem 0rem 13rem 0;
-    font-size: 9rem;
-    color: #222;
-    margin: auto;
-    height: 3rem;
-  }
-  body {
-    width: 100%;
-    height: 100vh;
-    background-color: #e9eed9;
-    overflow: hidden;
-  }
+  font-family: "HakgyoansimChilpanjiugaeTTF-B";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/2408-5@1.0/HakgyoansimChilpanjiugaeTTF-B.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "GangwonEdu_OTFBoldA";
+  src: url("https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEdu_OTFBoldA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 박스 모델을 통일 */
+  font-size: 20px;
+}
+
+.title {
+  font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+  margin: auto;
+  text-align: center;
+  padding: 3% 0% 0% 0;
+  font-size: 580%;
+  color: #222;
+  margin: auto;
+  height: 3%;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #e9eed9;
+  overflow: hidden;
+}
+
+.cuttingBoard {
+  width: 40%;
+  height: 60vh;
+  /*전체높이증가*/
+  background-color: #d2b48c;
+  border-radius: 7%;
+  position: relative;
+  /*내부요소의절대위치를위해설정*/
+  margin: auto;
+  margin-top: 4.5%;
+  -webkit-border-radius: 7%;
+  -moz-border-radius: 7%;
+  -ms-border-radius: 7%;
+  -o-border-radius: 7%;
+}
+
+/* @media (max-width: 350px) {
   .cuttingBoard {
-    width: 80rem;
-    height: 60rem; /* 전체 높이 증가 */
+      margin-top: 40%;
+      width: 50%;
+      height: 45vh;
+  }
+} */
+.side {
+  width: 15%;
+  height: 20vh;
+  background-color: #d2b48c;
+  border-radius: 50%;
+  position: absolute;
+  /* 절대 위치로 배치 */
+}
+
+.leftSide {
+  top: 33%;
+  left: -10%;
+}
+
+.rightSide {
+  top: 33%;
+  right: -10%;
+  /* left 대신 right로 위치 설정 */
+}
+
+.sideInside {
+  width: 80%;
+  height: 15vh;
+  background-color: #fff8e8;
+  border-radius: 50%;
+  position: relative;
+  /*절대위치로중앙배치*/
+  top: 50%;
+  /*부모의중앙*/
+  left: 50%;
+  /*부모의중앙*/
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.cookingArea {
+  font-family: "GangwonEdu_OTFBoldA", sans-serif;
+  width: 35%;
+  height: 20vh;
+  /* 높이를 줄여주고 */
+  margin: auto;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  /* 수직 정렬 */
+  align-items: center;
+  /* 중앙 정렬 */
+  justify-content: center;
+  /* 중앙 정렬 */
+}
+
+.menuTitle {
+  height: 6vh;
+  /* border: 1px solid red; */
+  line-height: 6vh;
+}
+
+.menu {
+  text-align: center;
+  border: 3px solid black;
+  font-size: 200%;
+  width: 100%;
+  position: relative;
+  top: -20%;
+  /*가로전체차지*/
+  margin-bottom: 1%;
+  /*항목간간격추가*/
+  padding: 1%;
+  /*내부여백추가*/
+  /*모서리둥글게*/
+  background-color: #fff8e8;
+  /*배경색추가*/
+  border-radius: 20%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
+
+.middleArea {
+  /* border: 3px solid black; */
+  font-family: "GangwonEdu_OTFBoldA", sans-serif;
+  display: flex;
+  /* 가로 정렬 */
+  justify-content: space-between;
+  /* 공간 분배 */
+  width: 95%;
+  /* 부모 요소와 같은 너비 */
+  height: 20vh;
+  /* 높이 조정 */
+  margin: auto;
+  position: relative;
+  top: -10%;
+  left: 1%;
+  /* border: 1px solid red; */
+}
+
+.bottomArea {
+  font-family: "GangwonEdu_OTFBoldA", sans-serif;
+  width: 90%;
+  /*부모요소와같은너비*/
+  height: 25vh;
+  /*높이조정*/
+  display: flex;
+  position: relative;
+  top: -8%;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 1%;
+}
+
+.leftColumn {
+  flex: 1;
+
+  /*균등분배*/
+  margin-left: 2%;
+  /*왼쪽여백*/
+  margin-right: 1%;
+  /*오른쪽여백*/
+  height: 20vh;
+}
+
+.rightColumn {
+  /* border: 3px solid black; */
+  flex: 1;
+  /* 균등 분배 */
+  margin-left: 2%;
+  /* 왼쪽 여백 */
+  margin-right: 2%;
+  /* 오른쪽 여백 */
+  height: 20vh;
+}
+
+.item {
+  border: 3px solid black;
+  /*박스구분을위해테두리추가*/
+  /*모서리둥글게*/
+  margin-bottom: 1%;
+  /*항목간간격추가*/
+  background-color: #fff8e8;
+  /*배경색추가*/
+  padding: 1%;
+  /*내부여백추가*/
+  text-align: center;
+  position: relative;
+  /*텍스트중앙정렬*/
+  font-size: 300.5%;
+  /*글자크기조정*/
+  width: 90%;
+  border-radius: 10%;
+  -webkit-border-radius: 10%;
+  -moz-border-radius: 10%;
+  -ms-border-radius: 10%;
+  -o-border-radius: 10%;
+}
+
+.ingredientArea {
+  height: 19vh;
+  margin-left: 5%;
+}
+
+.cookingTimeArea {
+  height: 19vh;
+}
+
+.cookingMethodArea {
+  width: 90%;
+  height: 20vh;
+  margin-top: 2%;
+  margin-left: 8%;
+}
+
+.titleNeedFood {
+  padding: 0;
+  /* border: 1px solid red; */
+  font-size: 80%;
+  /* padding-top: 5%; */
+  /* padding-bottom: 5%; */
+  border-bottom:1px solid #222 ;
+}
+.titleNeedFood2{
+  font-size: 80%;
+  padding: 0;
+} 
+
+.writingMode {
+  width: 10%;
+  font-size: 200.5%;
+  /* 글씨 크기 조정 */
+  text-align: center;
+  position: relative;
+  top: -10%;
+  left:8%;
+}
+
+input {
+  width: 30%;
+  height: 3vh;
+  font-size: 100%;
+  text-align: center;
+  font-family: "GangwonEdu_OTFBoldA", sans-serif;
+  border: none;
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+  }
+}
+
+/* label {
+  font-size: 200.5%;
+  position: relative;
+  border: 1px solid rebeccapurple;
+} */
+
+.needFood ,.makeFood{
+  text-align: left;
+  padding: 1px;
+  /* height: 10%; */
+  /* line-height: -30%; */
+  font-size: 50%;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 1400px) {
+  .cuttingBoard {
+    width: 40%;
+    height: 80vh;
+    /*전체높이증가*/
     background-color: #d2b48c;
-    border-radius: 7rem;
-    position: relative; /* 내부 요소의 절대 위치를 위해 설정 */
+    border-radius: 7%;
+    position: relative;
+    /*내부요소의절대위치를위해설정*/
     margin: auto;
-    margin-top: 3rem;
+    margin-top: 4.5%;
+    top:-10rem;
+    -webkit-border-radius: 7%;
+    -moz-border-radius: 7%;
+    -ms-border-radius: 7%;
+    -o-border-radius: 7%;
   }
+}
 
-  .side {
-    width: 15rem;
-    height: 20rem;
-    background-color: #d2b48c;
-    border-radius: 50%;
-    position: absolute; /* 절대 위치로 배치 */
+@media (max-width: 1300px) {
+  .cuttingBoard {
+      margin-top: 10%;
+      width: 70%;
+      height: 60vh;
   }
+}
 
-  .leftSide {
-    top: 20rem;
-    left: -10rem;
+@media (max-width: 1000px) {
+  .cuttingBoard {
+      margin-top: 15%;
+      width: 70%;
+      height: 60vh;
   }
+}
 
-  .rightSide {
-    top: 20rem;
-    right: -10rem; /* left 대신 right로 위치 설정 */
-  }
 
-  .sideInside {
-    width: 10rem;
-    height: 15rem;
-    background-color: #fff8e8;
-    border-radius: 50%;
-    position: relative; /* 절대 위치로 중앙 배치 */
-    top: 50%; /* 부모의 중앙 */
-    left: 50%; /* 부모의 중앙 */
-    transform: translate(-50%, -50%); /* 중앙 정렬 */
-    font-size: 7rem;
-    
+@media (max-width: 450px) {
+  .cuttingBoard {
+      margin-top: 30%;
+      width: 80%;
+      height: 40vh;
   }
-
-  .cookingArea {
-    font-family: "GangwonEdu_OTFBoldA", sans-serif;
-    width: 35%;
-    height: 20%; /* 높이를 줄여주고 */
-    margin: auto;
-    background-color: transparent;
-    display: flex;
-    flex-direction: column; /* 수직 정렬 */
-    align-items: center; /* 중앙 정렬 */
-    justify-content: center; /* 중앙 정렬 */
-  }
-  .menuTitle {
-    height: 8rem;
-    line-height: 6rem;
-  }
-  .menu {
-    text-align: center;
-    border: 3px solid black;
-    font-size: 4rem;
-    width: 100%; /* 가로 전체 차지 */
-    margin-bottom: 1rem; /* 항목 간 간격 추가 */
-    padding: 1rem; /* 내부 여백 추가 */
-    border-radius: 1rem; /* 모서리 둥글게 */
-    background-color: #fff8e8; /* 배경색 추가 */
-  }
-
-  .middleArea {
-    font-family: "GangwonEdu_OTFBoldA", sans-serif;
-    display: flex; /* 가로 정렬 */
-    justify-content: space-between; /* 공간 분배 */
-    width: 90%; /* 부모 요소와 같은 너비 */
-    height: 30%; /* 높이 조정 */
-    margin-top: 1rem; /* 상단 여백 */
-  }
-  .bottomArea {
-    font-family: "GangwonEdu_OTFBoldA", sans-serif;
-    width: 90%; /* 부모 요소와 같은 너비 */
-    height: 30%; /* 높이 조정 */
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    margin-top: 1rem; /* 상단 여백 */
-  }
-
-  .leftColumn {
-    flex: 1; /* 균등 분배 */
-    margin-left: 1rem; /* 왼쪽 여백 */
-    margin-right: 1rem; /* 오른쪽 여백 */
-    height: 20rem;
-  }
-
-  .rightColumn {
-    flex: 1; /* 균등 분배 */
-    margin-left: 1rem; /* 왼쪽 여백 */
-    margin-right: 1rem; /* 오른쪽 여백 */
-    height: 20rem;
-  }
-
   .item {
-    border: 3px solid black; /* 박스 구분을 위해 테두리 추가 */
-    border-radius: 1rem; /* 모서리 둥글게 */
-    margin-bottom: 1rem; /* 항목 간 간격 추가 */
-    background-color: #fff8e8; /* 배경색 추가 */
-    padding: 1rem; /* 내부 여백 추가 */
-    text-align: center; /* 텍스트 중앙 정렬 */
-    font-size: 3.5rem; /* 글자 크기 조정 */
-    width: 34rem;
+    padding: 0;
+    /* margin: 0; */
+    top:-25%;
+    font-size: 180%;
   }
   .ingredientArea {
-    height: 19rem;
-    margin-left: 4rem;
+    height: 10vh;
+    margin-left: 5%;
   }
-  .cookingTimeArea {
-    height: 19rem;
+  .cookingTimeArea{
+    height: 10vh;
   }
-  .cookingMethodArea {
-    width: 80rem;
-    height: 20rem;
-    margin-top: 2rem;
-    margin-left: 8rem;
+  .cookingMethodArea{
+    height: 15vh;
+    position: relative;
+    top:-60%;
   }
-  .cookingIngredientItem {
-    width: 9rem;
-    height: 9rem;
-    border: 3px solid black;
-    display: inline-block;
-    border-radius: 2rem;
+  .writingMode{
+    font-size: 150%;
+    left: -50%;
+    top:-15%;
   }
-  .cookingMethodItem {
-    width: 9rem;
-    height: 9rem;
-    border: 3px solid black;
-    display: inline-block;
-    border-radius: 2rem;
-  }
-  .item > p {
-    font-size: 4rem;
-    padding-top: 1rem;
-    padding-bottom: 1.5rem;
-  }
-  div > p {
-    font-family: "GangwonEdu_OTFBoldA", sans-serif;
-    font-size: 2rem;
-    padding: 3rem;
-  }
-  .writingMode {
-    writing-mode: vertical-rl; /* 세로로 쓰기 */
-    font-size: 3.5rem; /* 글씨 크기 조정 */
-    text-align: center; /* 중앙 정렬 */
-    margin-left: -2rem;
-    line-height: 4rem; /* 줄 간격 조정 */
-    letter-spacing: 1rem;
-  }
-  input {
-    width: 5rem;
-    height: 4rem;
-    font-size: 4rem;
-    text-align: center;
-    font-family: "GangwonEdu_OTFBoldA", sans-serif;
-    border: none;
-    input::-webkit-outer-spin-button,
-    input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-    }
-  }
-  label {
-    font-size: 2.5rem;
-  }
+}
