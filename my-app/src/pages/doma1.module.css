@@ -37,12 +37,15 @@ body {
   background-color: #e9eed9;
   overflow: hidden;
 }
-
+/* === 도마 === */
 .cuttingBoard {
   width: 40%;
   height: 60vh;
   /*전체높이증가*/
-  background-color: #d2b48c;
+  /* background-color: #d2b48c; */
+  background-image: url('../images/wood2.jpg');
+  background-size: contain;
+  background-position: 0%;
   border-radius: 7%;
   position: relative;
   /*내부요소의절대위치를위해설정*/
@@ -64,7 +67,10 @@ body {
 .side {
   width: 15%;
   height: 20vh;
-  background-color: #d2b48c;
+  /* background-color: #d2b48c; */
+  background-image: url('../images/wood2.jpg');
+  background-size: contain;
+  background-position: 0%;
   border-radius: 50%;
   position: absolute;
   /* 절대 위치로 배치 */
@@ -98,6 +104,10 @@ body {
   -ms-transform: translate(-50%, -50%);
   -o-transform: translate(-50%, -50%);
 }
+.sideInside:hover{
+  background-color: #eae3d5;
+  cursor: pointer;
+}
 
 .cookingArea {
   font-family: "GangwonEdu_OTFBoldA", sans-serif;
@@ -114,20 +124,19 @@ body {
   justify-content: center;
   /* 중앙 정렬 */
 }
-
+/* == 메뉴 이름 넣는 곳 === */
 .menuTitle {
-  height: 6vh;
+  height: 8vh;
   /* border: 1px solid red; */
-  line-height: 6vh;
+  line-height: 8vh;
 }
-
 .menu {
   text-align: center;
   border: 3px solid black;
-  font-size: 200%;
+  font-size: 250%;
   width: 100%;
   position: relative;
-  top: -20%;
+  top: -10%;
   /*가로전체차지*/
   margin-bottom: 1%;
   /*항목간간격추가*/
@@ -221,12 +230,14 @@ body {
 }
 
 .ingredientArea {
+  margin-top: 5%;
   height: 19vh;
   margin-left: 5%;
 }
 
 .cookingTimeArea {
   height: 19vh;
+  margin-top: 5%;
 }
 
 .cookingMethodArea {
@@ -245,48 +256,94 @@ body {
   border-bottom:1px solid #222 ;
 }
 .titleNeedFood2{
-  font-size: 80%;
-  padding: 0;
+  font-size: 100%;
+  padding: 10%;
 } 
 
-.writingMode {
-  width: 10%;
-  font-size: 200.5%;
-  /* 글씨 크기 조정 */
-  text-align: center;
-  position: relative;
-  top: -10%;
-  left:8%;
-}
 
-input {
-  width: 30%;
-  height: 3vh;
-  font-size: 100%;
-  text-align: center;
-  font-family: "GangwonEdu_OTFBoldA", sans-serif;
-  border: none;
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-  }
-}
 
 /* label {
   font-size: 200.5%;
   position: relative;
   border: 1px solid rebeccapurple;
 } */
-
+  /* ======= 재료 넣는 박스 ==== */
+  .needFoodArea{
+    display: grid;
+    grid-auto-rows: 2px; /* 각 행의 높이 */
+    gap: 10px; /* 아이템 사이의 간격 */
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+  }
+  
+  /*  === 만드는 방법 넣는 박스 입니다.. 근데 이것도 옆으로 할까요 말까요??? ==== */
+  /*
+  .makeFoodArea{
+    display: grid;
+    grid-auto-rows: 2px;  각 행의 높이 
+    gap: 10px;  아이템 사이의 간격 
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+  */
 .needFood ,.makeFood{
+  box-sizing: border-box;
+  padding: 3px;
+  /* display: flex; */
+  width: 100%;
   text-align: left;
-  padding: 1px;
-  /* height: 10%; */
-  /* line-height: -30%; */
-  font-size: 50%;
+  display: block;
+  /* padding: 10px; */
+  /* border: 1px solid red; */
+  font-size: 100%;
   letter-spacing: 1px;
 }
 
+/* === Home 으로 돌아가기 Btn */
+.backHomeBtn{
+  background-color: #fff8e8;
+  border: 2px solid #222;
+  position:relative;
+  top:-45%;
+  left: 90%;
+  width: 40%;
+  height: 30%;
+  text-align: center;
+  font-size: 130%;
+  border-radius: 20%;
+  -webkit-border-radius: 20%;
+  -moz-border-radius: 20%;
+  -ms-border-radius: 20%;
+  -o-border-radius: 20%;
+}
+.backHomeBtn:hover{
+  background-color: #eae3d5;
+  cursor: pointer;
+}
+
+
+  .ingredientArea {
+    height: 15vh;
+    margin-left: 5%;
+    top:-10%;
+  
+  }
+  .cookingTimeArea{
+    height: 15vh;
+    top:-10%;
+  }
+  .cookingMethodArea{
+    height: 25vh;
+    position: relative;
+    top:-30%;
+  }
+  .writingMode{
+    position: relative;
+    font-size:130%;
+    height: 100%;
+    width: 20%;
+    left: 40%;
+    top:5%;
+  }
+/* === 반응형으로 만들기 === */
 @media (max-width: 1400px) {
   .cuttingBoard {
     width: 40%;
@@ -305,15 +362,19 @@ input {
     -o-border-radius: 7%;
   }
 }
-
-@media (max-width: 1300px) {
+@media (max-width: 1350px) {
   .cuttingBoard {
-      margin-top: 10%;
-      width: 70%;
+      margin-top:10%;
+      width: 50%;
       height: 60vh;
   }
+  .item {
+    padding: 0;
+    top:-25%;
+    font-size: 180%;
+    /* border: 3px solid red; */
+  }
 }
-
 @media (max-width: 1000px) {
   .cuttingBoard {
       margin-top: 15%;
@@ -321,11 +382,16 @@ input {
       height: 60vh;
   }
 }
-
-
+@media (max-width: 700px) {
+  .cuttingBoard {
+      margin-top: 21%;
+      width: 70%;
+      height: 60vh;
+  }
+}
 @media (max-width: 450px) {
   .cuttingBoard {
-      margin-top: 30%;
+      margin-top: 50%;
       width: 80%;
       height: 40vh;
   }

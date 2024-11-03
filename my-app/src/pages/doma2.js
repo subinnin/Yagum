@@ -15,7 +15,9 @@ const Doma2 = () => {
     const navigateToDoma1 = () =>{
         navigate('/doma1')
     }
-
+    const navigateToHome =()=>{
+        navigate('/')
+    }
     const [currentPage, setCurrentPage] = useState(0);
     const [data, setData ] = useState([])
     const [loading, setLoading] = useState(true);
@@ -63,6 +65,7 @@ const Doma2 = () => {
         <div>
             <header className={styles.title}>냉장고를 야금야금</header>
             <div className={styles.cuttingBoard}>
+                <div className={styles.backHomeBtn} onClick={navigateToHome}>냉장고로<br></br>돌아가기</div>
                 <div className={`${styles.side} ${styles.leftSide}`}> {/* 수정 */}
                     <div onClick={handleBeforePage} className={styles.sideInside}>
                         <p className={styles.writingMode}>이전</p>

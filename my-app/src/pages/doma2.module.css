@@ -12,84 +12,113 @@
     font-weight: normal;
     font-style: normal;
   }
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box; /* 박스 모델을 통일 */
-    font-size: 10px;
-  }
-  .title {
-    font-family: "HakgyoansimChilpanjiugaeTTF-B";
-    margin: auto;
-    text-align: center;
-    padding: 5rem 0rem 13rem 0;
-    font-size: 9rem;
-    color: #222;
-    margin: auto;
-    height: 3rem;
-  }
-  body {
-    width: 100%;
-    height: 100vh;
-    background-color: #e9eed9;
-    overflow: hidden;
-  }
+  
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* 박스 모델을 통일 */
+  font-size: 20px;
+}
 
-  .cuttingBoard {
-    width: 80rem;
-    height: 60rem; /* 전체 높이 증가 */
-    background-color: #d2b48c;
-    border-radius: 7rem;
-    position: relative; /* 내부 요소의 절대 위치를 위해 설정 */
-    margin: auto;
-    margin-top: 3rem;
-  }
+.title {
+  font-family: 'HakgyoansimChilpanjiugaeTTF-B';
+  margin: auto;
+  text-align: center;
+  padding: 3% 0% 0% 0;
+  font-size: 580%;
+  color: #222;
+  margin: auto;
+  height: 3vh;
+}
 
-  .side {
-    width: 15rem;
-    height: 20rem;
-    background-color: #d2b48c;
-    border-radius: 50%;
-    position: absolute; /* 절대 위치로 배치 */
-  }
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #e9eed9;
+  overflow: hidden;
+}
+/* === 도마 === */
+.cuttingBoard {
+  width: 40%;
+  height: 60vh;
+  /*전체높이증가*/
+  /* background-color: #d2b48c; */
+  background-image: url('../images/wood2.jpg');
+  background-size: contain;
+  background-position: 0%;
+  border-radius: 7%;
+  position: relative;
+  /*내부요소의절대위치를위해설정*/
+  margin: auto;
+  margin-top: 4.5%;
+  -webkit-border-radius: 7%;
+  -moz-border-radius: 7%;
+  -ms-border-radius: 7%;
+  -o-border-radius: 7%;
+}
+.side {
+  width: 15%;
+  height: 20vh;
+  /* background-color: #d2b48c; */
+  background-image: url('../images/wood2.jpg');
+  background-size: contain;
+  background-position: 0%;
+  border-radius: 50%;
+  position: absolute;
+  /* 절대 위치로 배치 */
+}
 
-  .leftSide {
-    top: 20rem;
-    left: -10rem;
-  }
+.leftSide {
+  top: 33%;
+  left: -10%;
+}
 
-  .rightSide {
-    top: 20rem;
-    right: -10rem; /* left 대신 right로 위치 설정 */
-  }
+.rightSide {
+  top: 33%;
+  right: -10%;
+  /* left 대신 right로 위치 설정 */
+}
 
-  .sideInside {
-    width: 10rem;
-    height: 15rem;
-    background-color: #fff8e8;
-    border-radius: 50%;
-    position: relative; /* 절대 위치로 중앙 배치 */
-    top: 50%; /* 부모의 중앙 */
-    left: 50%; /* 부모의 중앙 */
-    transform: translate(-50%, -50%); /* 중앙 정렬 */
-    font-size: 7rem;
-    
-  }
+.sideInside {
+  width: 80%;
+  height: 15vh;
+  background-color: #fff8e8;
+  border-radius: 50%;
+  position: relative;
+  /*절대위치로중앙배치*/
+  top: 50%;
+  /*부모의중앙*/
+  left: 50%;
+  /*부모의중앙*/
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+.sideInside:hover{
+  background-color: #eae3d5;
+  cursor: pointer;
+}
+
   .methodTitle {
-    height: 6rem;
-    line-height: 6rem;
-    font-size: 5rem;
-    padding :3rem 0 2rem 2rem;
+    height: 6vh;
+    line-height: 6%;
+    font-size: 5%;
+    padding :3% 0 2% 2%;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 2%;
     font-family: "GangwonEdu_OTFBoldA", sans-serif;
     /*border: 1px solid black;*/
   }
   .imgArea {
+    position: relative;
+    top:-15%;
     width: 100%;
-    height: 40rem;
+    height: 140%;
     /*border: 1px solid black;*/
-    margin-left: 8rem;
+    margin-left: 12%;
     background-image: url("img.png");
     background-repeat: no-repeat;
     background-size: cover;
@@ -99,40 +128,115 @@
     display: flex; /* 가로 정렬 */
     justify-content: space-between; /* 공간 분배 */
     width: 90%; /* 부모 요소와 같은 너비 */
-    height: 30%; /* 높이 조정 */
-    margin-top: 1rem; /* 상단 여백 */
+    height: 30vh; /* 높이 조정 */
+    margin-top: 1%; /* 상단 여백 */
   }
   .bottomArea {
     font-family: "GangwonEdu_OTFBoldA", sans-serif;
     width: 90%; /* 부모 요소와 같은 너비 */
-    height: 30%; /* 높이 조정 */
+    height: 30vh; /* 높이 조정 */
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin-top: 1rem; /* 상단 여백 */
+    margin-top: 1%; /* 상단 여백 */
   }
 
   div > p {
     font-family: "GangwonEdu_OTFBoldA", sans-serif;
-    font-size: 2rem;
-    padding: 3rem;
+    font-size: 2%;
+    padding: 3%;
   }
-  .writingMode {
-    writing-mode: vertical-rl; /* 세로로 쓰기 */
-    font-size: 3.5rem; /* 글씨 크기 조정 */
-    text-align: center; /* 중앙 정렬 */
-    
-    line-height: 4rem; /* 줄 간격 조정 */
-    letter-spacing: 2rem;
-    padding-top: 3rem;
-    padding-bottom: 4rem;
+  .writingMode{
+    position: relative;
+    font-size:230%;
+    height: 100%;
+    width: 20%;
+    left: 35%;
+    top:15%;
   }
   .methodExplain {
     width: 90%;
-    height: 30%;
+    height: 30vh;
     /*border: 1px solid black;*/
-    margin-top: 23rem;
-    margin-left: 8rem;
-    font-size: 3rem;
+    margin-top: 23%;
+    margin-left: 8%;
+    font-size: 3%;
     text-align: center;
+  }
+/* === Home 으로 돌아가기 Btn */
+  .backHomeBtn{
+    font-family: "GangwonEdu_OTFBoldA";
+    background-color: #fff8e8;
+    border: 2px solid #222;
+    position:relative;
+    top:3%;
+    left: 75%;
+    width: 15%;
+    height: 6vh;
+    /* line-height: 7vh; */
+    text-align: center;
+    font-size: 130%;
+    border-radius: 20%;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+  }
+  .backHomeBtn:hover{
+    background-color: #eae3d5;
+    cursor: pointer;
+  }
+  /* ==== 반응형으로 만들기 ===== */
+  @media (max-width: 1350px) {
+    .cuttingBoard {
+        margin-top:7%;
+        width: 50%;
+        height: 60vh;
+    }
+  }
+  @media (max-width: 1300px) {
+    .cuttingBoard {
+      margin-top:7%;
+      width: 50%;
+      height: 60vh;
+  }
+  }
+  @media (max-width: 450px) {
+    .cuttingBoard {
+        margin-top: 50%;
+        width: 80%;
+        height: 40vh;
+    }
+    .writingMode{
+      font-size: 150%;
+    }
+    .imgArea {
+      position: relative;
+      top:-15%;
+      width: 100%;
+      height: 80%;
+      /*border: 1px solid black;*/
+      margin-left: 12%;
+      background-image: url("img.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    .backHomeBtn{
+      font-family: "GangwonEdu_OTFBoldA";
+      background-color: #fff8e8;
+      border: 2px solid #222;
+      position:relative;
+      top:3%;
+      left: 70%;
+      width: 25%;
+      height: 6vh;
+      /* line-height: 7vh; */
+      text-align: center;
+      font-size: 130%;
+      border-radius: 20%;
+      -webkit-border-radius: 20%;
+      -moz-border-radius: 20%;
+      -ms-border-radius: 20%;
+      -o-border-radius: 20%;
+    }
   }

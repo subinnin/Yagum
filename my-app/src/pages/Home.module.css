@@ -69,13 +69,13 @@ body {
 
 @media (max-width: 1300px) {
     .fridge {
-        margin-top: 10%;
-        width: 38%;
+        margin-top: 3%;
+        width: 20%;
         height: 60vh;
     }
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 1200px) {
     .fridge {
         margin-top: 15%;
         width: 40%;
