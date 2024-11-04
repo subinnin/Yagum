@@ -1,12 +1,12 @@
 import React from 'react';
 import styles from './menu.module.css'
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRotateRight } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from 'react-router-dom'
 
 const Menu = () => {
     const navigate = useNavigate(); //useNavigate 훅 사용
-
+    const navigateToHome = () => {
+        navigate('/')
+      }
     const navigateToDoma1 = () =>{
         navigate('/doma1')
     }
@@ -18,8 +18,13 @@ const Menu = () => {
                     <section className={styles.todays}>
                         <div>
                             <h1>TODAY'S MENU</h1>
+                            
                         </div>
+                        <div className={styles.btnArea}>
                         <div className={styles.againMenu}>🌮다른 메뉴 추천받기🍜</div>
+                        <span className={styles.backHomeBtn} onClick={navigateToHome}>냉장고로 돌아가기</span>
+                        </div>
+                        
                     </section>
                     <div className={styles.dividingLine}></div>
                     <section className={styles.menuList}>

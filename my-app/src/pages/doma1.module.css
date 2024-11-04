@@ -272,7 +272,7 @@ body {
     display: grid;
     grid-auto-rows: 2px; /* 각 행의 높이 */
     gap: 10px; /* 아이템 사이의 간격 */
-    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
   
   /*  === 만드는 방법 넣는 박스 입니다.. 근데 이것도 옆으로 할까요 말까요??? ==== */
