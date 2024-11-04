@@ -137,7 +137,7 @@ const Home = () => {
                         }),
                     });
                     const data = await response.json();
-                    console.log(data.message);
+                    console.log(data);
                 } catch (err) {
                     console.error("ERROR:", err);
                 }
@@ -157,27 +157,27 @@ const Home = () => {
                         <div className={`${styles.textAreaRight} ${styles.textArea}`}>부재료를 2가지 선택해주세요.</div>
                         <div className={`${styles.inputAreaRight} ${styles.inputArea2} ${styles.checkbox_buttons}`}>
                             <div className={styles.container2}>
-                            <img src={potatoImage} className={`${styles.box2} ${activeSubItems.includes('potato') ? styles.active : ''}`} onClick={()=>handleSubClick('potato')}></img>
+                            <img src={potatoImage} className={`${styles.box2} ${activeSubItems.includes('감자') ? styles.active : ''}`} onClick={()=>handleSubClick('감자')}></img>
                                 <div className={styles.textR}>감자</div>
                             </div>
                             <div className={styles.container2}>
-                            <img src={kimchiImage} className={`${styles.box2} ${activeSubItems.includes('kimchi') ? styles.active : ''}`} onClick={()=>handleSubClick('kimchi')}></img>
+                            <img src={kimchiImage} className={`${styles.box2} ${activeSubItems.includes('김치') ? styles.active : ''}`} onClick={()=>handleSubClick('김치')}></img>
                                 <div className={styles.textR}>김치</div>
                             </div>
                             <div className={styles.container2}>
-                                <img src={greenOnionImage} className={`${styles.box2} ${activeSubItems.includes('greenOnion') ? styles.active : ''}`} onClick={()=>handleSubClick('greenOnion')}></img>
+                                <img src={greenOnionImage} className={`${styles.box2} ${activeSubItems.includes('대파') ? styles.active : ''}`} onClick={()=>handleSubClick('대파')}></img>
                                     <div className={styles.textR}>대파</div>
                             </div>
                             <div className={styles.container2}>
-                                <img src={dduckImage} className={`${styles.box2} ${activeSubItems.includes('dduck') ? styles.active : ''}`} onClick={()=>handleSubClick('dduck')}></img>
+                                <img src={dduckImage} className={`${styles.box2} ${activeSubItems.includes('떡') ? styles.active : ''}`} onClick={()=>handleSubClick('떡')}></img>
                                     <div className={styles.textR}>떡</div>
                             </div>
                             <div className={styles.container2}>
-                                <img src={garlicImage} className={`${styles.box2} ${activeSubItems.includes('garlic') ? styles.active : ''}`} onClick={()=>handleSubClick('garlic')}></img>
+                                <img src={garlicImage} className={`${styles.box2} ${activeSubItems.includes('마늘') ? styles.active : ''}`} onClick={()=>handleSubClick('마늘')}></img>
                                     <div className={styles.textR}>마늘</div>
                             </div>
                             <div className={styles.container2}>
-                                <img src={onionImage} className={`${styles.box2} ${activeSubItems.includes('onion') ? styles.active : ''}`} onClick={()=>handleSubClick('onion')}></img>
+                                <img src={onionImage} className={`${styles.box2} ${activeSubItems.includes('양파') ? styles.active : ''}`} onClick={()=>handleSubClick('양파')}></img>
                                     <div className={styles.textR}>양파</div>
                             </div>
                         
@@ -190,27 +190,27 @@ const Home = () => {
                     <div className={styles.textArea}>주재료를 1가지 선택해주세요.</div>
                     <div className={styles.inputArea}>
                     <div className={styles.container}>
-                        <img src={porkImage} className={`${styles.box} ${activeMainItems.includes('pork') ? styles.active : ''}`} onClick={()=>handleMainClick('pork')}></img>
+                        <img src={porkImage} className={`${styles.box} ${activeMainItems.includes('돼지고기') ? styles.active : ''}`} onClick={()=>handleMainClick('돼지고기')}></img>
                             <div className={styles.text}>돼지고기</div>
                         </div>
                         <div className={styles.container}>
-                        <img src={beefImage} className={`${styles.box} ${activeMainItems.includes('beef') ? styles.active : ''}`} onClick={()=>handleMainClick('beef')}></img>
+                        <img src={beefImage} className={`${styles.box} ${activeMainItems.includes('소고기') ? styles.active : ''}`} onClick={()=>handleMainClick('소고기')}></img>
                             <div className={styles.text}>소고기</div>
                         </div>
                         <div className={styles.container}>
-                            <img src={chickenImage} className={`${styles.box} ${activeMainItems.includes('chicken') ? styles.active : ''}`} onClick={()=>handleMainClick('chicken')}></img>
+                            <img src={chickenImage} className={`${styles.box} ${activeMainItems.includes('닭고기') ? styles.active : ''}`} onClick={()=>handleMainClick('닭고기')}></img>
                                 <div className={styles.text}>닭고기</div>
                         </div>
                         <div className={styles.container}>
-                            <img src={fishImage} className={`${styles.box} ${activeMainItems.includes('fish') ? styles.active : ''}`} onClick={()=>handleMainClick('fish')}></img>
+                            <img src={fishImage} className={`${styles.box} ${activeMainItems.includes('생선') ? styles.active : ''}`} onClick={()=>handleMainClick('생선')}></img>
                                 <div className={styles.text}>생선</div>
                         </div>
                         <div className={styles.container}>
-                            <img src={eggImage} className={`${styles.box} ${activeMainItems.includes('egg') ? styles.active : ''}`} onClick={()=>handleMainClick('egg')}></img>
+                            <img src={eggImage} className={`${styles.box} ${activeMainItems.includes('계란') ? styles.active : ''}`} onClick={()=>handleMainClick('계란')}></img>
                                 <div className={styles.text}>계란</div>
                         </div>
                         <div className={styles.container}>
-                            <img src={hamImage} className={`${styles.box} ${activeMainItems.includes('ham') ? styles.active : ''}`} onClick={()=>handleMainClick('ham')}></img>
+                            <img src={hamImage} className={`${styles.box} ${activeMainItems.includes('햄') ? styles.active : ''}`} onClick={()=>handleMainClick('햄')}></img>
                                 <div className={styles.text}>햄</div>
                         </div>
                         <button className={styles.nextPageBtn} onClick={handleNextPage}><span>선택완료</span></button>
