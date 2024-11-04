@@ -271,7 +271,7 @@ body {
   .needFoodArea{
     display: grid;
     grid-auto-rows: 2px; /* 각 행의 높이 */
-    gap: 10px; /* 아이템 사이의 간격 */
+    gap: 13px; /* 아이템 사이의 간격 */
     grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
   }
   
@@ -288,12 +288,12 @@ body {
   box-sizing: border-box;
   padding: 3px;
   /* display: flex; */
-  width: 100%;
+  width: 150%;
   text-align: left;
   display: block;
   /* padding: 10px; */
   /* border: 1px solid red; */
-  font-size: 100%;
+  font-size: 150%;
   letter-spacing: 1px;
 }
 
@@ -305,7 +305,8 @@ body {
   top:-45%;
   left: 90%;
   width: 40%;
-  height: 30%;
+  height: 6vh;
+  line-height: 3vh;
   text-align: center;
   font-size: 130%;
   border-radius: 20%;
@@ -337,7 +338,7 @@ body {
   }
   .writingMode{
     position: relative;
-    font-size:130%;
+    font-size:210%;
     height: 100%;
     width: 20%;
     left: 40%;
@@ -374,6 +375,32 @@ body {
     font-size: 180%;
     /* border: 3px solid red; */
   }
+  .needFoodArea{
+    display: grid;
+    grid-auto-rows: 2px; /* 각 행의 높이 */
+    gap: 8px; /* 아이템 사이의 간격 */
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  }
+  .needFood ,.makeFood{
+    box-sizing: border-box;
+    padding: 3px;
+    /* display: flex; */
+    width: 150%;
+    text-align: left;
+    display: block;
+    /* padding: 10px; */
+    /* border: 1px solid red; */
+    font-size: 80%;
+    letter-spacing: 1px;
+  }
+  .writingMode{
+    position: relative;
+    font-size:130%;
+    height: 100%;
+    width: 20%;
+    left: 40%;
+    top:5%;
+  }
 }
 @media (max-width: 1000px) {
   .cuttingBoard {
@@ -391,8 +418,9 @@ body {
 }
 @media (max-width: 450px) {
   .cuttingBoard {
-      margin-top: 50%;
-      width: 80%;
+      position: relative;
+      top:7rem;
+      width: 70%;
       height: 40vh;
   }
   .item {
@@ -415,7 +443,29 @@ body {
   }
   .writingMode{
     font-size: 150%;
-    left: -50%;
-    top:-15%;
+    /* left: -50%; */
+    /* top:-15%; */
   }
+  .backHomeBtn{
+    font-size: 100%;
+    height:4vh;
+  }
+  .needFoodArea{
+    display: grid;
+    grid-auto-rows: 2px; /* 각 행의 높이 */
+    gap: 5px; /* 아이템 사이의 간격 */
+    grid-template-columns: repeat(auto-fill, minmax(30px, 1fr));
+  }
+  .needFood ,.makeFood{
+    box-sizing: border-box;
+    padding: 3px;
+    /* display: flex; */
+    width: 150%;
+    text-align: left;
+    display: block;
+    /* padding: 10px; */
+    /* border: 1px solid red; */
+    font-size: 70%;
+    letter-spacing: 1px;}
+
 }

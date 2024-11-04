@@ -131,7 +131,9 @@ body {
     -ms-transform: rotateY(180deg);
     -o-transform: rotateY(180deg);
 }
-
+.door:hover{
+    cursor: pointer;
+}
 .foodBoxLeft {
     transition: 1.2s;
     opacity: 0;
@@ -183,14 +185,14 @@ body {
 /* ========= 문 열렸을 때 오른쪽 부분 레이아웃 ========= */
 .foodBox {
     transition: 1.2s;
-    opacity: 0;
-
+    display: none;
 }
 
 .open .foodBox {
     position: relative;
     /* top:5.5%; */
     /* border: #222 solid 3px; */
+    display: block;
     width: 93%;
     height: 93%;
     margin: 7% 3% 5% 3%;
@@ -228,15 +230,6 @@ body {
     -o-transform: scaleX(-1);
 }
 
-
-/*  ==== 인풋 값 받는 영역 ==== */
-.inputFood,
-.inputRange,
-.nextPageBtn,
-.textArea {
-    display: none;
-}
-
 .open .inputArea {
     position: relative;
     top: -12%;
@@ -250,6 +243,9 @@ body {
     background-color: #f9f9f9;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+.inputArea2{
+    display: none;
 }
 .open .inputArea2 {
     position: relative;
